@@ -62,3 +62,4 @@ typings/
 /.blackbox/pubring.gpg~
 /.blackbox/pubring.kbx~
 /.blackbox/secring.gpg
+/wpa_supplicant.conf
