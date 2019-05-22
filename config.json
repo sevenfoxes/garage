@@ -1,0 +1,16 @@
+{
+    "bridge": {
+        "name": "Homerbridge",
+        "username": "CC:23:3D:E3:CE:30",
+        "port": 51826,
+        "pin": "032-45-154"
+    },
+    "description": "Homebridge is annoying",
+    "accessories": [],
+    "platforms": [
+        {
+            "platform": "BelkinWeMo",
+            "name": "WeMo Platform"
+        }
+    ]
+}
