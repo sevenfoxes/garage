@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "homebridge-dummy": "^0.3.0",
+    "homebridge-platform-wemo": "^1.3.8",
+    "homebridge-rasppi-gpio-garagedoor": "^1.0.10"
+  }
+}
