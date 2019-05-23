@@ -5,5 +5,7 @@ sudo curl https://download.docker.com/linux/raspbian/gpg
 sudo echo "deb https://download.docker.com/linux/raspbian/ stretch stable" >> /etc/apt/sources.list
 sudo apt-get update
 sudo apt-get upgrade
-systemctl start docker.service
+sudo systemctl start docker.service
 docker info
+sudo apt-get install -y python python-pip libffi-dev build-essential libssl-dev libffi-dev python3-dev
+sudo pip install docker-compose
