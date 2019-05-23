@@ -3,11 +3,10 @@ services:
   homebridge:
     image: oznu/homebridge:raspberry-pi
     restart: always
+    privileged: true
     network_mode: host
     volumes:
       - ./config:/homebridge
-    devices:
-      - "/dev/gpiomem:/dev/gpiomem"
     environment:
       - PGID=1000
       - PUID=1000
