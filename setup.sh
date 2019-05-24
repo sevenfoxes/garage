@@ -1,11 +1,15 @@
-sudo apt-get install apt-transport-https ca-certificates software-properties-common -y
-curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
-sudo usermod -aG docker pi
-sudo curl https://download.docker.com/linux/raspbian/gpg
-sudo echo "deb https://download.docker.com/linux/raspbian/ stretch stable" >> /etc/apt/sources.list
-sudo apt-get update
-sudo apt-get upgrade
-sudo systemctl start docker.service
-docker info
-sudo apt-get install -y python python-pip libffi-dev build-essential libssl-dev libffi-dev python3-dev
-sudo pip install docker-compose
+sudo su
+curl -sL https://deb.nodesource.com/setup_10.x | bash -
+apt-get install -y nodejs gcc g++ make python
+npm install -g --unsafe-perm homebridge@latest homebridge-config-ui-x@latest
+npm i -g homebridge-platform-wemo homebridge-rasppi-gpio-garagedoor
+useradd -m --system homebridge
+echo 'homebridge    ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
+mkdir -p /var/lib/homebridge
+cp ./config.json /var/lib/homebridge/config.json
+cp ./homebridge.service /etc/systemd/system/
+cp ./hb /etc/default/homebridge
+chown -R homebridge: /var/lib/homebridge
+systemctl daemon-reload
+systemctl enable homebridge
+systemctl start homebridge
