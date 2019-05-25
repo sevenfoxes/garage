@@ -4,6 +4,6 @@ raspberry pi code for monitoring and controlling my garage door.
 
 ## Future me
 
-I used this to setup the wifi [link to wifi setup](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/setting-up-wifi-with-occidentalis)
+I used this to setup the wifi: [link to wifi setup](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/setting-up-wifi-with-occidentalis)
 
-The `package.json`and the `config.json` are just backups of the real things. They need to both be in the config folder but the docker image messes with that folder too much and I want to keep the ability to edit these from the web interface
+This is a good diagram for the pins: [link to raspberry pi pinout](https://pinout.xyz/). So this really bit me in the ass, in the config, you need to put the BCM number of the pin, not the physical one. However, if you want to test a pin, wiring pi wants the wiring pi number. Any pins that you want to use have to be exported in the gpio_init.sh script.

@@ -1,16 +1,41 @@
 {
-    "bridge": {
-        "name": "Homerbridge",
-        "username": "CC:23:3D:E3:CE:30",
-        "port": 51826,
-        "pin": "032-45-154"
+  "bridge": {
+    "name": "Homerbridge",
+    "username": "CC:23:3D:E3:CE:30",
+    "port": 51826,
+    "pin": "032-45-154"
+  },
+  "description": "Homebridge is annoying",
+  "accessories": [
+    {
+      "accessory": "RaspPiGPIOGarageDoor",
+      "name": "Garage Door",
+      "doorSwitchPin": 16,
+      "doorSwitchPressTimeInMs": 500,
+      "doorSwitchValue": 0,
+      "closedDoorSensorPin": 20,
+      "closedDoorSensorValue": 1,
+      "doorPollInMs": 4000,
+      "doorOpensInSeconds": 10
+    }
+  ],
+  "platforms": [
+    {
+      "name": "Config",
+      "port": 8080,
+      "auth": "form",
+      "theme": "teal",
+      "restart": "sudo -n systemctl restart homebridge",
+      "tempUnits": "c",
+      "sudo": true,
+      "log": {
+        "method": "systemd"
+      },
+      "platform": "config"
     },
-    "description": "Homebridge is annoying",
-    "accessories": [],
-    "platforms": [
-        {
-            "platform": "BelkinWeMo",
-            "name": "WeMo Platform"
-        }
-    ]
+    {
+      "platform": "BelkinWeMo",
+      "name": "WeMo Platform"
+    }
+  ]
 }
